@@ -1,0 +1,25 @@
+version: "3"
+services:
+  mysql:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: my-secret-password
+    volumes:
+      - db:/var/lib/mysql
+  php:
+    image: chsergeig/ts3-php:1.0.0
+    volumes:
+      - php:/var/www/html
+    depends_on:
+      - mysql
+  web:
+    image: chsergeig/ts3-web:1.0.0
+    volumes:
+      - ./fpi.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
+    ports:
+      - "9999:80"
+volumes:
+  db: {}
+  php: {}

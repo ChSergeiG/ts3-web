@@ -1,0 +1,11 @@
+FROM php:7.4.33-fpm-alpine
+
+ARG EXT_LINK="https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions"
+ARG RELEASE_LINK="https://github.com/Wruczek/ts-website/releases/download/dev-2.1.0/ts-website-dev-2.1.0-60fb088.zip"
+
+RUN curl -sSL $EXT_LINK -o - | sh -s pdo_mysql
+
+RUN wget $RELEASE_LINK && unzip ts-website-*zip && rm ts-website-*zip
+RUN mkdir -p /var/www/html/ && mv ./ts-website/* /var/www/html/
+
+RUN chown -R www-data:www-data /var/www/html

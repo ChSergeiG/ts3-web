@@ -1,0 +1,13 @@
+FROM nginx:latest
+
+EXPOSE 9999
+
+ARG RELEASE_LINK="https://github.com/Wruczek/ts-website/releases/download/dev-2.1.0/ts-website-dev-2.1.0-60fb088.zip"
+
+RUN apt-get update && apt-get install unzip wget -y && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN wget $RELEASE_LINK && unzip ts-website-*zip && rm ts-website-*zip
+RUN mkdir -p /var/www/html/ && mv ./ts-website/* /var/www/html/
+
+RUN rm /etc/nginx/conf.d/*
+COPY ./fpi.conf /etc/nginx/conf.d
+RUN chown -R www-data:www-data /var/www/html
