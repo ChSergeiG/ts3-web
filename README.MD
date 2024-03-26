@@ -1,5 +1,7 @@
 # Containerized Teamspeak 3 web application.
 
+[![Publish Docker image](https://github.com/ChSergeiG/ts3-web/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/ChSergeiG/ts3-web/actions/workflows/docker-publish.yml)
+
 Based on [Wruczek GitHub project](https://github.com/Wruczek/ts-website).
 
 ### Launch
@@ -30,5 +32,4 @@ Stack consists of 3 containers:
    1) Nginx service port is 80. This port must ve mount outside container. Default port is 9999.
    2) Nginx configuration may be inspected in `./fpi.conf` file.
    3) You dont need to mount any files outside container. 
-
 

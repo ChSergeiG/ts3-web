@@ -1,4 +1,4 @@
-name: Publish Docker image
+name: Publish WEB Docker image
 
 on:
   push:
@@ -6,8 +6,8 @@ on:
       - main
 
 jobs:
-  push_to_registry:
-    name: Push Docker image to Docker Hub
+  build:
+    name: Build WEB image and push to Docker Hub
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
@@ -19,30 +19,16 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Extract metadata (tags, labels) for Docker image web
-        id: web-meta
+      - name: Extract metadata (tags, labels) for web Docker image
+        id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
           images: chsergeig/ts3-web
 
-      - name: Build and push Docker image web
+      - name: Build and push web Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
         with:
           context: .
           file: ./Dockerfile-web
           push: true
           tags: chsergeig/ts3-web:1.0.0
-
-      - name: Extract metadata (tags, labels) for Docker image php
-        id: php-meta
-        uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
-        with:
-          images: chsergeig/ts3-php
-
-      - name: Build and push Docker image php
-        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
-        with:
-          context: .
-          file: ./Dockerfile-php
-          push: true
-          tags: chsergeig/ts3-php:1.0.0
