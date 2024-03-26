@@ -1,9 +1,13 @@
-version: "3"
+version: "3.9"
+
 services:
   mysql:
     image: mysql:8
     environment:
-      MYSQL_ROOT_PASSWORD: my-secret-password
+      MYSQL_ROOT_PASSWORD: my-secret-root-password
+      MYSQL_DATABASE: ts3
+      MYSQL_USER: ts3
+      MYSQL_PASSWORD: my-secret-user-password
     volumes:
       - db:/var/lib/mysql
   php:
@@ -12,6 +16,28 @@ services:
       - php:/var/www/html
     depends_on:
       - mysql
+  ts3:
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: '64M'
+        reservations:
+          cpus: '0.01'
+          memory: '8M'
+    image: mbentley/teamspeak
+    restart: unless-stopped
+    volumes:
+      - ts3-data:/data
+    environment:
+      - TS3SERVER_GDPR_SAVE=false
+      - TS3SERVER_LICENSE=accept
+    ports:
+      - "9987:9987/udp"
+      - "10011:10011"
+      - "30033:30033"
+      - "41144:41144"
+#    command: serveradmin_password=my_new_query_password
   web:
     image: chsergeig/ts3-web
     depends_on:
@@ -21,3 +47,4 @@ services:
 volumes:
   db: {}
   php: {}
+  ts3: {}
