@@ -1,6 +1,7 @@
 # Containerized Teamspeak 3 web application.
 
 [![Publish PHP Docker image](https://github.com/ChSergeiG/ts3-web/actions/workflows/docker-publish-php.yml/badge.svg?branch=main)](https://github.com/ChSergeiG/ts3-web/actions/workflows/docker-publish-php.yml)
+
 [![Publish WEB Docker image](https://github.com/ChSergeiG/ts3-web/actions/workflows/docker-publish-web.yml/badge.svg?branch=main)](https://github.com/ChSergeiG/ts3-web/actions/workflows/docker-publish-web.yml)
 
 Based on [Wruczek GitHub project](https://github.com/Wruczek/ts-website).
@@ -30,7 +31,7 @@ Stack consists of 3 containers:
    1) Default PHP-FBI service port is 9000.
    2) To persist data on container recreation mount `/var/www/html` directory outside container. NB: this directory contains private directory with sensitive data.
 3) Nginx proxy container
-   1) Nginx service port is 80. This port must ve mount outside container. Default port is 9999.
-   2) Nginx configuration may be inspected in `./fpi.conf` file.
-   3) You dont need to mount any files outside container. 
+   1) Nginx service port is 80. This port must be mounted outside container. Default port is 9999.
+   2) Nginx's configuration may be inspected in `./fpi.conf` file.
+   3) You don't need to mount any files outside container. 
 

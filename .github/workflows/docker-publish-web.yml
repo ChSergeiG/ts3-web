@@ -31,4 +31,4 @@ jobs:
           context: .
           file: ./Dockerfile-web
           push: true
-          tags: chsergeig/ts3-web:1.0.0
+          tags: chsergeig/ts3-web:1.0.0,chsergeig/ts3-web:latest
