@@ -1,6 +1,7 @@
 # Containerized Teamspeak 3 web application.
 
-[![Publish Docker image](https://github.com/ChSergeiG/ts3-web/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/ChSergeiG/ts3-web/actions/workflows/docker-publish.yml)
+[![Publish PHP Docker image](https://github.com/ChSergeiG/ts3-web/actions/workflows/docker-publish-php.yml/badge.svg?branch=main)](https://github.com/ChSergeiG/ts3-web/actions/workflows/docker-publish-php.yml)
+[![Publish WEB Docker image](https://github.com/ChSergeiG/ts3-web/actions/workflows/docker-publish-web.yml/badge.svg?branch=main)](https://github.com/ChSergeiG/ts3-web/actions/workflows/docker-publish-web.yml)
 
 Based on [Wruczek GitHub project](https://github.com/Wruczek/ts-website).
 
