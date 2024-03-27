@@ -2,6 +2,14 @@ version: "3.9"
 
 services:
   mysql:
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: '512M'
+        reservations:
+          cpus: '0.05'
+          memory: '32M'
     image: mysql:8
     environment:
       MYSQL_ROOT_PASSWORD: my-secret-root-password
@@ -11,6 +19,14 @@ services:
     volumes:
       - db:/var/lib/mysql
   php:
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: '64M'
+        reservations:
+          cpus: '0.01'
+          memory: '8M'
     image: chsergeig/ts3-php
     volumes:
       - php:/var/www/html
@@ -39,6 +55,14 @@ services:
       - "41144:41144"
 #    command: serveradmin_password=my_new_query_password
   web:
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: '16M'
+        reservations:
+          cpus: '0.01'
+          memory: '8M'
     image: chsergeig/ts3-web
     depends_on:
       - php

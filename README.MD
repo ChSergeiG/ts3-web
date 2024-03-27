@@ -32,11 +32,11 @@ Stack consists of 3 containers:
    3) To set db password set `services.mysql.environment.MYSQL_ROOT_PASSWORD` variable. This password is sensitive
    4) To persist data on container recreation mount `/var/lib/mysql` directory outside container.
 2) PHP container
-   1) Default PHP-FBI service port is 9000.
+   1) Default PHP-FPM service port is 9000.
    2) To persist data on container recreation mount `/var/www/html` directory outside container. NB: this directory contains private directory with sensitive data.
 3) Nginx proxy container
    1) Nginx service port is 80. This port must be mounted outside container. Default port is 9999.
-   2) Nginx's configuration may be inspected in `./fpi.conf` file.
+   2) Nginx's configuration may be inspected in `./fpm.conf` file.
    3) You don't need to mount any files outside container. 
 
 ### Installation

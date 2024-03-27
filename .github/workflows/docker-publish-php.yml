@@ -34,4 +34,4 @@ jobs:
           context: .
           file: ./Dockerfile-php
           push: true
-          tags: chsergeig/ts3-php:1.0.1,chsergeig/ts3-php:latest
+          tags: chsergeig/ts3-php:1.0.2,chsergeig/ts3-php:latest

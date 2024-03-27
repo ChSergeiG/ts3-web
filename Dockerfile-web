@@ -9,5 +9,5 @@ RUN wget $RELEASE_LINK && unzip ts-website-*zip && rm ts-website-*zip
 RUN mkdir -p /var/www/html/ && mv ./ts-website/* /var/www/html/
 
 RUN rm /etc/nginx/conf.d/*
-COPY ./fpi.conf /etc/nginx/conf.d
+COPY ./fpm.conf /etc/nginx/conf.d
 RUN chown -R www-data:www-data /var/www/html
