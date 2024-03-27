@@ -4,7 +4,11 @@
 
 [![Publish WEB Docker image](https://github.com/ChSergeiG/ts3-web/actions/workflows/docker-publish-web.yml/badge.svg?branch=main)](https://github.com/ChSergeiG/ts3-web/actions/workflows/docker-publish-web.yml)
 
+[![Update Docker Hub Description](https://github.com/ChSergeiG/ts3-web/actions/workflows/docker-description.yml/badge.svg?branch=main)](https://github.com/ChSergeiG/ts3-web/actions/workflows/docker-description.yml)
+
 ## Based on [Wruczek GitHub project](https://github.com/Wruczek/ts-website).
+
+### Project in [github](https://github.com/ChSergeiG/ts3-web)
 
 ### Launch
 
